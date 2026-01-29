@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: eco-bot
-        image: romanmartyny/bot:latest
+        image: romanmartyny/bot:547c0cac5671eb99080267438c5944838bdd9945
         imagePullPolicy: Always
         env:
         - name: BOT-API-KEY
