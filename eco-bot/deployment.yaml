@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eco-bot
+  namespace: default
+  labels:
+    app: eco-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eco-bot
+  template:
+    metadata:
+      labels:
+        app: eco-bot
+    spec:
+      containers:
+      - name: eco-bot
+        image: romanmartyny/bot:latest
+        imagePullPolicy: Always
+        env:
+        - name: BOT-API-KEY
+          valueFrom:
+            secretKeyRef:
+              name: eco-bot-secret
+              key: token
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"

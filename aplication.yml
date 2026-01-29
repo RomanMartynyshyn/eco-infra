@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eco-bot
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/RomanMartynyshyn/eco-infra.git
+    targetRevision: HEAD
+    path: eco-bot
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
