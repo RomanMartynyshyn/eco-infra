@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eco-backend
+  namespace: default
+  labels:
+    app: eco-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eco-backend
+  template:
+    metadata:
+      labels:
+        app: eco-backend
+    spec:
+      containers:
+        - name: eco-backend
+          image: romanmartyny/backend:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DATABASE_URL
+              value: "postgresql+asyncpg://postgres:postgres@postgres:5432/eco_db"
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "128m"
+            limits:
+              memory: "128Mi"
+              cpu: "256m"

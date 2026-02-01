@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: eco-bot
-        image: romanmartyny/bot:547c0cac5671eb99080267438c5944838bdd9945
+        image: romanmartyny/bot:latest
         imagePullPolicy: Always
         env:
         - name: BOT-API-KEY
@@ -25,6 +25,8 @@ spec:
             secretKeyRef:
               name: eco-bot-secret
               key: token
+        - name: BACKEND_URL
+          value: "http://eco-backend:8000"
         resources:
           requests:
             memory: "64Mi"
