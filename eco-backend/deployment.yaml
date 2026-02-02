@@ -24,7 +24,7 @@ spec:
             - name: DATABASE_URL
               value: "postgresql+asyncpg://postgres:postgres@postgres:5432/eco_db"
             - name: HOST
-              value: "db"
+              value: "postgres"
             - name: PORT
               value: "5432"
           resources:
