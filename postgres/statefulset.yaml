@@ -23,11 +23,11 @@ spec:
           name: postgres
         env:
         - name: POSTGRES_DB
-          value: eco_db
+          value: EcoProject
         - name: POSTGRES_USER
           value: postgres
         - name: POSTGRES_PASSWORD
-          value: postgres
+          value: root
         volumeMounts:
         - name: postgres-data
           mountPath: /var/lib/postgresql/data
