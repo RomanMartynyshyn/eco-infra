@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: eco-backend
-          image: romanmartyny/backend:5568b6c70ded15dece6180e278c3457d24c3eed3
+          image: romanmartyny/backend:503cbc08e15c381d74959fdbdb3fdd777ec86844
           ports:
             - containerPort: 8000
           env:
